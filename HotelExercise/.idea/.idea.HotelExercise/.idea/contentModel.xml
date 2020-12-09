@@ -19,6 +19,8 @@
           <e p="20201209192950_first.Designer.cs" t="Include" />
           <e p="20201209212626_second.cs" t="Include" />
           <e p="20201209212626_second.Designer.cs" t="Include" />
+          <e p="20201209221800_third.cs" t="Include" />
+          <e p="20201209221800_third.Designer.cs" t="Include" />
           <e p="HotelContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
