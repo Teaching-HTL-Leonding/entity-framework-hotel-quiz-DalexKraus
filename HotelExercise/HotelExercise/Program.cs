@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using HotelExercise.Controller;
 using HotelExercise.Models;
+using HotelExercise.Util;
 
 namespace HotelExercise
 {
@@ -99,13 +100,12 @@ namespace HotelExercise
         public static async Task Main(string[] args)
         {
             _hotelController = new HotelController(args);
-            
-            Console.Write("Enter mode (1 = add hotel | 2 = display hotels | else = exit): ");
-            var mode = Console.ReadLine();
 
             var shouldExit = false;
             do
             {
+                Console.Write("Enter mode (1 = add hotel | 2 = display hotels | else = exit): ");
+                var mode = Console.ReadLine();
                 switch (mode?.Trim())
                 {
                     case "1":
@@ -113,6 +113,11 @@ namespace HotelExercise
                         await _hotelController.AddHotel(hotelToAdd);
                         break;
                     case "2":
+                        var hotels = await _hotelController.GetAllHotels();
+                        foreach (var hotel in hotels)
+                        {
+                            Console.WriteLine($"\n{await MarkdownFormatter.FormatHotel(_hotelController, hotel)}\n\n");
+                        }
                         break;
                     default:
                         shouldExit = true;

@@ -4,7 +4,7 @@ namespace HotelExercise.Models
 {
     public class Address
     {
-        public int Id { get; set; }
+        public int Id { get; set; } = 0;
         [MaxLength(64)]
         public string Street { get; set; }
         public int ZipCode { get; set; }
